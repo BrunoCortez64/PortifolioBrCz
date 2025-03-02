@@ -135,6 +135,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+    border-radius: 10px;
+    height: 400px;
+    width: 300px;
 }
 
 
@@ -319,7 +323,7 @@
         .about-image {
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 5px #0ff, 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
         }
 
         .about-image img {
@@ -630,6 +634,57 @@
     line-height: 1.5;
 }
 
+    .social-contact {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    .social-contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        transition: transform 0.3s, color 0.3s;
+        width: 120px;
+        padding: 1.5rem;
+        border-radius: 10px;
+        background: rgba(46, 33, 87, 0.3);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-contact-item:hover {
+        transform: translateY(-10px);
+        background: rgba(146, 0, 117, 0.3);
+        color: var(--accent);
+    }
+
+    .social-contact-item i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .social-contact-item span {
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .social-contact {
+            gap: 1rem;
+        }
+        
+        .social-contact-item {
+            width: 100px;
+            padding: 1rem;
+        }
+    }
+
+
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -667,7 +722,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="imagens/pc2.jpg" alt="Bruno Cortez" class="profile-image">
+                <img src="imagens/pc2.jpg" alt="Bruno Cortez" class="hero-image">
             </div>
         </div>
     </header>
@@ -877,30 +932,40 @@
                 <p>A máquina prevê dados, faz resumo estatísticos, retorna em gráficos, faz uma análise exploratória e retorna a melhor molécula do banco de dados</p>
                 <a href="https://github.com/BrunoCortez64/IA_mol">Repositório</a>
             </div>
+            <div class="project-card">
+                <img src="imagens/projeto5.png" alt="Projeto 5">
+                <h3>Projeto 5</h3>
+                <p>Aplicação web de uma livraria com front-end/back-end completamente funcionais, desenvolvidos em ReactJS e NodeJS</p>
+                <a href="https://github.com/BrunoCortez64/bruno-books">Repositório front-end /</a>
+                <a href="https://github.com/BrunoCortez64/bruno-books-server">Repositório servidor back-end</a>
+            </div>
         </div>
     </section>
     
 
     <section id="contact" class="reveal">
         <h2>Contato</h2>
-        <div class="contact-form">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" id="name" placeholder="Seu nome">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Seu email">
-            </div>
-            <div class="form-group">
-                <label for="subject">Assunto</label>
-                <input type="text" id="subject" placeholder="Assunto">
-            </div>
-            <div class="form-group">
-                <label for="message">Mensagem</label>
-                <textarea id="message" placeholder="Sua mensagem"></textarea>
-            </div>
-            <button class="btn">Enviar mensagem</button>
+        <div class="social-contact">
+            <a href="https://wa.me/5511972310756" class="social-contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.instagram.com/_brunodgk/" class="social-contact-item">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/in/brunofcortez/" class="social-contact-item">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/BrunoCortez64" class="social-contact-item">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="mailto:brunofcortez@gmail.com" class="social-contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
         </div>
     </section>
 
