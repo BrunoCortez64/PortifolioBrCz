@@ -70,6 +70,21 @@
             color: var(--accent);
         }
 
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        
         .hero {
     max-width: 1200px;
     width: 90%;
@@ -80,11 +95,12 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    flex-wrap: wrap; /* Ajuste para responsividade */
+    flex-wrap: wrap;
 }
 
 .hero-content {
     flex: 1;
+    min-width: 300px; /* Garante largura mínima em telas pequenas */
 }
 
 .hero h1 {
@@ -98,21 +114,6 @@
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid var(--accent);
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
 }
 
 .hero h2 {
@@ -139,36 +140,79 @@
     border-radius: 10px;
     height: 400px;
     width: 300px;
+    min-width: 250px; /* Garante largura mínima */
+    max-width: 100%; /* Evita que ultrapasse o contêiner pai */
+    margin: 0 auto; /* Centraliza em telas pequenas */
+    overflow: hidden;
 }
-
-
 
 .profile-image {
     width: 100%;
-    max-width: 500px; /* Reduzi o tamanho máximo para melhor responsividade */
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     animation: fadeIn 1s ease-out 0.6s both;
+    object-fit: cover; /* Mantém proporções da imagem */
+}
+
+/* Media Queries aprimoradas */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1.5rem;
+    }
+    
+    .hero-content {
+        margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+        animation: fadeIn 1s ease-out;
+        white-space: normal;
+        border-right: none;
+    }
 }
 
 @media (max-width: 768px) {
     .hero {
-        flex-direction: column;
-        text-align: center;
+        padding: 2rem 1rem;
     }
-
+    
     .hero h1 {
-        font-size: 3rem; /* Reduzi o tamanho do título */
+        font-size: 2.5rem;
+        white-space: normal;
+        border-right: none;
+        animation: fadeIn 1s ease-out;
     }
-
+    
     .hero h2 {
         font-size: 1.5rem;
     }
-
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
     .hero-image {
-        margin-top: 2rem;
-        
+        height: 350px;
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-image {
+        height: 300px;
+        width: 220px;
+    }
+    
+    .social-links {
+        justify-content: center;
     }
 }
 
