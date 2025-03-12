@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Cortez | Portfólio</title>
+    <style>
+        :root {
+            --primary: #920075;
+            --secondary: #2e2157;
+            --accent: #2de2e6;
+            --dark-purple: #540d6e;
+            --bg-dark: #0d0221;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: rgba(13, 2, 33, 0.8);
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        @keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 12ch; /* Define largura baseada no texto */
+    }
+}
+
+
+        
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        
+        .hero {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px; /* Garante largura mínima em telas pequenas */
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block; /* Necessário para a animação funcionar */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--accent);
+    animation: typing 3s steps(20, end) forwards, blink 0.6s infinite;
+}
+
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    animation: slideIn 1s ease-out 0.2s both;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    animation: slideIn 1s ease-out 0.4s both;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+    border-radius: 10px;
+    height: 400px;
+    width: 300px;
+    min-width: 250px; /* Garante largura mínima */
+    max-width: 100%; /* Evita que ultrapasse o contêiner pai */
+    margin: 0 auto; /* Centraliza em telas pequenas */
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-out 0.6s both;
+    object-fit: cover; /* Mantém proporções da imagem */
+}
+
+/* Media Queries aprimoradas */
+@media (max-width: 992px) {
+    header {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 80px; /* Espaço para a navbar fixa */
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1.5rem;
+        gap: 3rem;
+    }
+    
+    .hero-content {
+        margin-bottom: 0;
+        width: 100%;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+        animation: fadeIn 1s ease-out;
+        white-space: normal;
+        border-right: none;
+        overflow: visible;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .hero-image {
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 3/4;
+    }
+    
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+        white-space: normal;
+        border-right: none;
+        animation: fadeIn 1s ease-out;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-image {
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-image {
+        max-width: 220px;
+        height: auto;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: typing 3s steps(20, end) forwards, blink 0.6s infinite;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            animation: slideIn 1s ease-out 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: slideIn 1s ease-out 0.4s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--dark-purple));
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(146, 0, 117, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+            background-color: var(--primary);
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background-color: var(--primary);
+            top: 20%;
+            left: 20%;
+            animation: float 8s infinite alternate;
+        }
+
+        .blob-2 {
+            width: 250px;
+            height: 250px;
+            background-color: var(--secondary);
+            top: 60%;
+            right: 20%;
+            animation: float 6s infinite alternate-reverse;
+        }
+
+        .blob-3 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--dark-purple);
+            bottom: 10%;
+            left: 40%;
+            animation: float 10s infinite alternate;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 0;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 5px #0ff, 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 1rem;
+            
+        }
+
+        .info-item strong {
+            width: 120px;
+            color: var(--accent);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(46, 33, 87, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skills-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .education-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 20px;
+        }
+
+        .timeline-item {
+            padding: 1rem 1rem 1rem 3rem;
+            position: relative;
+            background: rgba(46, 33, 87, 0.3);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            left: -8px;
+            top: 20px;
+            border: 2px solid var(--accent);
+        }
+
+        .timeline-item .year {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .timeline-item h3 {
+            margin: 0.5rem 0;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: rgba(46, 33, 87, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+        }
+
+        .course-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .course-card p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 2px solid var(--secondary);
+            background-color: rgba(13, 2, 33, 0.5);
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background-color: rgba(13, 2, 33, 0.8);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(45, 226, 230, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-top: 1rem;
+            color: #999;
+        }
+
+        /* Animações */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(20px, 20px);
+            }
+        }
+
+        /* Efeito de revelação ao rolar */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+
+        .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: rgba(46, 33, 87, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    color: #cccccc;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+    .social-contact {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    .social-contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        transition: transform 0.3s, color 0.3s;
+        width: 120px;
+        padding: 1.5rem;
+        border-radius: 10px;
+        background: rgba(46, 33, 87, 0.3);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-contact-item:hover {
+        transform: translateY(-10px);
+        background: rgba(146, 0, 117, 0.3);
+        color: var(--accent);
+    }
+
+    .social-contact-item i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .social-contact-item span {
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .social-contact {
+            gap: 1rem;
+        }
+        
+        .social-contact-item {
+            width: 100px;
+            padding: 1rem;
+        }
+    }
+
+
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">BC</div>
+        <div class="nav-links">
+            <a href="#home">Início</a>
+            <a href="#about">Sobre</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#education">Educação</a>
+            <a href="#courses">Cursos</a>
+            <a href="#projects">Projetos</a>
+            <a href="#contact">Contato</a>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="background-animation">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Bruno Cortez</h1>
+                <h2>Computer Engineering</h2>
+                <p>Estudante de Engenharia da Computação, apaixonado por computadores e tecnologias, buscando uma oportunidade no mercado de trabalho.</p>
+                <a href="#contact" class="btn">Entre em contato</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/brunofcortez/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/BrunoCortez64"><i class="fab fa-github"></i></a>
+                    <a href="#contact"><i class="fas fa-envelope"></i></a>
+                    
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="imagens/pc2.jpg" alt="Bruno Cortez" class="hero-image">
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="reveal">
+        <h2>Sobre mim</h2>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="imagens/perfil1.jpg" alt="Bruno Cortez">
+            </div>
+            <div class="about-content">
+                <p>Sou estudante de Engenharia da Computação na FIAP, atualmente no 9º semestre, com previsão de término em dezembro de 2025. Tenho uma sólida base em linguagens de programação como Python, R e C++, além de experiência em banco de dados, incluindo Oracle SQL. Minhas habilidades se estendem a desenvolvimento web com HTML, CSS e JavaScript, com experiencia em react e NodeJS.  Experiência também em redes e sistemas operacionais, com destaque para Linux. Também possuo conhecimento em hardware, segurança cibernética, engenharia de software e computação em nuvem, com foco em nuvem da AWS.
+                </p>
+                <p>Possuo forte capacidade de comunicação, aprendo facilmente novos conceitos e tecnologias, e trabalho bem em equipe. Estou à procura de oportunidades de estágio que me permitam aplicar e desenvolver minhas habilidades em um ambiente profissional.</p>
+                <div class="info-item">
+                    <strong>Idade:</strong> <span>23 anos</span>
+                </div>
+                <div class="info-item">
+                    <strong>Email:</strong> <span>brunofcortez@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <strong>Telefone:</strong> <span>(11) 97231-0756</span>
+                </div>
+                <div class="info-item">
+                    <strong>Localização:</strong> <span>São Paulo, SP</span>
+                </div>
+                <div class="info-item">
+                    <strong>Idiomas:</strong> <span>Português (Nativo), Inglês (Intermediário), Espanhol (Básico)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="reveal">
+        <h2>Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programação</h3>
+                <ul class="skills-list">
+                    <li>Python</li>
+                    <li>R</li>
+                    <li>Linguagem C++</li>
+                    <li>HTML, CSS e JavaScript</li>
+                    <li>React, Node.Js, Next.Js</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Banco de Dados</h3>
+                <ul class="skills-list">
+                    <li>Banco de dados relacionais</li>
+                    <li>Oracle SQL</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Infraestrutura</h3>
+                <ul class="skills-list">
+                    <li>Redes</li>
+                    <li>Linux</li>
+                    <li>Conhecimento em hardware</li>
+                    <li>Cloud Computing</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Segurança</h3>
+                <ul class="skills-list">
+                    <li>Cybersecurity</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Habilidades Pessoais</h3>
+                <ul class="skills-list">
+                    <li>Comunicação</li>
+                    <li>Habilidades interpessoais</li>
+                    <li>Rápido aprendizado</li>
+                    <li>Trabalho em equipe</li>
+                    <li>Esforçado e dedicado</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Outros Conhecimentos</h3>
+                <ul class="skills-list">
+                    <li>Pacote Office</li>
+                    <li>Engenharia de software</li>
+                    <li>IoT</li>
+                    <li>Big Data</li>
+                    <li>PowerBI</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="reveal">
+        <h2>Educação</h2>
+        <div class="education-timeline">
+            <div class="timeline-item">
+                <div class="year">2021 - 2025</div>
+                <h3>Engenharia da Computação</h3>
+                <p>Faculdade de Informática e Administração Paulista (FIAP)</p>
+                <p>Campus Aclimação - 9º semestre - Período noturno</p>
+            </div>
+            <div class="timeline-item">
+                <div class="year">Turma de 2019</div>
+                <h3>Ensino Fundamental e Médio</h3>
+                <p>Colégio Van Gogh</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="reveal">
+        <h2>Cursos Complementares</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <h3>Sensores e circuitos digitais</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>Formação social e sustentabilidade</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>Algoritmos: Aprenda a programar</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>Gestão de Infraestrutura de TI</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>Estatística para soluções em TI</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>Dominando IOT</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>Python</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>BigData</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>CyberSecurity</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>Estrutura de Computadores</h3>
+                <p>FIAP - Centro Universitário</p>
+                <p>NANO Course</p>
+            </div>
+            <div class="course-card">
+                <h3>React: comece seu projeto full stack</h3>
+                <p>ALURA</p>
+            </div>
+            <div class="course-card">
+                <h3>React e Node.js: consumindo APIs no React no projeto full stack</h3>
+                <p>ALURA</p>
+            </div>
+            <div class="course-card">
+                <h3>Node.js: continue seu projeto full stack criando uma API com Express</h3>
+                <p>ALURA</p>
+            </div>
+            <div class="course-card">
+                <h3>Lógica de programação: mergulhe em programação com JavaScript
+                </h3>
+                <p>ALURA</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="reveal">
+        <h2>Projetos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="imagens/projeto1.png" alt="Projeto 1">
+                <h3>Projeto 1</h3>
+                <p>Aplicação front-end para um mercado de skins do Counter-Strike</p>
+                <a href="https://github.com/BrunoCortez64/portifolio-brvt">Repositório</a>
+            </div>
+            <div class="project-card">
+                <img src="imagens/projeto2.png" alt="Projeto 2">
+                <h3>Projeto 2</h3>
+                <p>Aplicação sobre filmes feita com NextJS e NodeJS front-end/back-end integrada a API TMDB</p>
+                <a href="https://github.com/BrunoCortez64/FiapFilmes">Repositório</a>
+            </div>
+            <div class="project-card">
+                <img src="imagens/projeto3.png" alt="Projeto 3">
+                <h3>Projeto 3</h3>
+                <p>Aplicativo mobile desenvolvido em ReactJS e ExpoJS para uma comanda de restaurante funcional, integrada a uma API de lanches</p>
+                <a href="https://github.com/BrunoCortez64/ComandaBRVT">Repositório</a>
+            </div>
+            <div class="project-card">
+                <img src="imagens/projeto4.png" alt="Projeto 4">
+                <h3>Projeto 4</h3>
+                <p>Desenvolvimento de uma MachineLearning para um banco de dados de moléculas químicas em Python utilizando pandas, sklearn, seaborn, rdkit.</p>
+                <p>A máquina prevê dados, faz resumo estatísticos, retorna em gráficos, faz uma análise exploratória e retorna a melhor molécula do banco de dados</p>
+                <a href="https://github.com/BrunoCortez64/IA_mol">Repositório</a>
+            </div>
+            <div class="project-card">
+                <img src="imagens/projeto5.png" alt="Projeto 5">
+                <h3>Projeto 5</h3>
+                <p>Aplicação web de uma livraria com front-end/back-end completamente funcionais, desenvolvidos em ReactJS e NodeJS</p>
+                <a href="https://github.com/BrunoCortez64/bruno-books">Repositório front-end /</a>
+                <a href="https://github.com/BrunoCortez64/bruno-books-server">Repositório servidor back-end</a>
+            </div>
+            <div class="project-card">
+                <img src="imagens/projeto6.png" alt="Projeto 6">
+                <h3>Projeto 6</h3>
+                <p>Aplicação web desenvolvida por Html,Css e Python, utilizando o framework Django, buscando manter boas práticas de programação em projetos Django</p>
+                <a href="https://github.com/BrunoCortez64/bruno_space1">Repositório</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="reveal">
+        <h2>Contato</h2>
+        <div class="social-contact">
+            <a href="https://wa.me/5511972310756" class="social-contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.instagram.com/_brunodgk/" class="social-contact-item">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/in/brunofcortez/" class="social-contact-item">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/BrunoCortez64" class="social-contact-item">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="mailto:brunofcortez@gmail.com" class="social-contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Bruno Cortez</div>
+            <p>© 2025 Bruno Cortez. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Revelação de elementos ao rolar
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        reveal(); // Para ativar os elementos que já estão visíveis no carregamento inicial
+        
+        // Rolagem suave para links de navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
