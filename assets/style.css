@@ -88,18 +88,23 @@ padding: 2rem;
 position: relative;
 z-index: 1;
 display: flex;
-align-items: center;
 gap: 2rem;
 flex-wrap: wrap;
+align-items: center; /* centraliza verticalmente */
 }
 
 .hero-content {
 flex: 1;
 min-width: 300px; /* Garante largura mínima em telas pequenas */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
 }
 
 .hero h1 {
-font-size: 4rem;
+font-size: 4rem; 
 margin-bottom: 1rem;
 background: linear-gradient(90deg, var(--primary), var(--accent));
 -webkit-background-clip: text;
@@ -128,20 +133,7 @@ line-height: 1.6;
 animation: slideIn 1s ease-out 0.4s both;
 }
 
-.hero-image {
-flex: 1;
-display: flex;
-justify-content: center;
-align-items: center;
-box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
-border-radius: 10px;
-height: 400px;
-width: 300px;
-min-width: 250px; /* Garante largura mínima */
-max-width: 100%; /* Evita que ultrapasse o contêiner pai */
-margin: 0 auto; /* Centraliza em telas pequenas */
-overflow: hidden;
-}
+
 
 .profile-image {
 width: 100%;
@@ -248,31 +240,6 @@ justify-content: center;
 justify-content: center;
 }
 /*}*/
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: typing 3s steps(20, end) forwards, blink 0.6s infinite;
-}
-
-.hero h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #ffffff;
-    animation: slideIn 1s ease-out 0.2s both;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    animation: slideIn 1s ease-out 0.4s both;
-}
 
 .btn {
     display: inline-block;
@@ -765,6 +732,7 @@ font-weight: 500;
     left: 0;
     background-color: transparent;
     z-index: 0;
+
 }
 
 header, section, footer {
