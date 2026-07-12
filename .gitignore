@@ -4,3 +4,7 @@ node_modules/
 # Ignorar arquivos de ambiente
 .env
 .DS_Store
+
+# Ignorar config MCP (contém API key)
+mcp.json
+.mcp.json

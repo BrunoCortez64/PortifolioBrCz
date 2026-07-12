@@ -4,155 +4,537 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruno Cortez | Portfólio</title>
+    <meta name="description" content="Bruno Cortez — Full-Stack Developer & Information Security Analyst. IAM, IGA & PAM, React, Node.js, Java, Spring Boot, PostgreSQL e SailPoint.">
 
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%232de2e6'%3E%E2%9D%AF%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <div id="particles-js"></div>
-    <nav>
-        <div class="logo">BC</div>
-        <div class="nav-links">
+    <div id="particles-js" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <nav id="nav">
+        <a class="logo" href="#home"><span class="logo-prompt">❯</span>BC<span class="logo-cursor">_</span></a>
+        <div class="nav-links" id="nav-links">
             <a href="#home">Início</a>
             <a href="#about">Sobre</a>
-            <a href="#skills">Habilidades</a>
-            <a href="#education">Educação</a>
-            <a href="#courses">Cursos</a>
+            <a href="#experience">Experiência</a>
+            <a href="#skills">Stack</a>
             <a href="#projects">Projetos</a>
-            <a href="#contact">Contato</a>
+            <a href="#education">Formação</a>
+            <a href="#courses">Cursos &amp; Certificados</a>
+            <a href="#contact" class="nav-cta">Contato</a>
         </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-progress" id="nav-progress"></div>
     </nav>
 
     <header id="home">
-        <div class="background-animation">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
+        <div class="background-animation" aria-hidden="true">
+            <div class="orb orb-1" data-depth="0.35"></div>
+            <div class="orb orb-2" data-depth="0.2"></div>
+            <div class="orb orb-3" data-depth="0.5"></div>
         </div>
         <div class="hero">
             <div class="hero-content">
-                <h1>Bruno Cortez</h1>
-                <h2>Computer Engineering</h2>
-                <p>Estudante de Engenharia da Computação, apaixonado por computadores e tecnologias. Sempre em busca de novas soluções e desafios que impulsionem a inovação e o aprendizado contínuo.</p>
-                <a href="#contact" class="btn">Entre em contato</a>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/brunofcortez/"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/BrunoCortez64"><i class="fab fa-github"></i></a>
-                    <a href="#contact"><i class="fas fa-envelope"></i></a>
-                    </a>
+                <p class="hero-eyebrow mono"><span class="prompt-user">bruno@portfolio</span><span class="prompt-path">:~$</span> whoami<span class="caret-block"></span></p>
+                <h1 class="hero-title">Bruno<br>Cortez</h1>
+                <p class="hero-role mono"><span class="prompt-arrow">❯</span> <span id="typed-role">Full-Stack Developer</span><span class="caret-line">|</span></p>
+                <p class="hero-desc">Desenvolvedor full-stack e analista de segurança da informação na
+                   <strong>NicolaSec</strong>. Construo produtos de CyberSecurity de ponta a ponta — de
+                   plataformas de governança de identidades (<strong>IGA</strong>) como o
+                   <strong>Mind the Gap</strong> a APIs REST — com <strong>React, Node.js, Java/Spring
+                   e SQL</strong>.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary magnetic">Entre em contato</a>
+                    <a href="#projects" class="btn btn-ghost magnetic">Ver projetos <i class="fas fa-arrow-down"></i></a>
                 </div>
+                <div class="hero-footer">
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/brunofcortez/" target="_blank" rel="noopener" aria-label="LinkedIn" class="magnetic"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/BrunoCortez64" target="_blank" rel="noopener" aria-label="GitHub" class="magnetic"><i class="fab fa-github"></i></a>
+                        <a href="mailto:brunofcortez@gmail.com" aria-label="Email" class="magnetic"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="hero-status mono"><span class="status-dot"></span>disponível para oportunidades · São Paulo, SP</p>
+                </div>
+            </div>
+
+            <!-- Emblema "Identity Core": cadeado construído em traço + HUD de identidade -->
+            <div class="hero-emblem" aria-hidden="true">
+                <svg class="emblem-svg" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="eg-brand" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#d61fb0"/>
+                            <stop offset="1" stop-color="#2de2e6"/>
+                        </linearGradient>
+                        <linearGradient id="eg-scanline" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0" stop-color="#2de2e6" stop-opacity="0"/>
+                            <stop offset="0.5" stop-color="#2de2e6" stop-opacity="0.9"/>
+                            <stop offset="1" stop-color="#2de2e6" stop-opacity="0"/>
+                        </linearGradient>
+                        <radialGradient id="eg-glow" cx="0.5" cy="0.5" r="0.5">
+                            <stop offset="0" stop-color="#2de2e6" stop-opacity="0.14"/>
+                            <stop offset="0.55" stop-color="#920075" stop-opacity="0.07"/>
+                            <stop offset="1" stop-color="#0d0221" stop-opacity="0"/>
+                        </radialGradient>
+                        <path id="eg-textcircle" d="M 280 40 a 240 240 0 1 1 -0.01 0"/>
+                        <clipPath id="eg-hexclip">
+                            <path d="M280 130 L150 205 L150 355 L280 430 L410 355 L410 205 Z"/>
+                        </clipPath>
+                    </defs>
+
+                    <!-- halo de fundo -->
+                    <circle class="eg-halo" cx="280" cy="280" r="252" fill="url(#eg-glow)"/>
+
+                    <!-- anel de texto rotativo -->
+                    <g class="eg-textring">
+                        <text class="eg-ringlabel">
+                            <textPath href="#eg-textcircle">IAM · IGA · PAM · CYBERSECURITY · IDENTITY · FULL-STACK · IAM · IGA · PAM · CYBERSECURITY · IDENTITY · FULL-STACK ·</textPath>
+                        </text>
+                    </g>
+
+                    <!-- anéis giratórios -->
+                    <circle class="eg-ring-dash" cx="280" cy="280" r="222"/>
+                    <circle class="eg-ring-ticks" cx="280" cy="280" r="200"/>
+
+                    <!-- satélites em órbita -->
+                    <g class="eg-orbit-a">
+                        <circle class="eg-trail" cx="280" cy="280" r="222"/>
+                        <circle class="eg-sat eg-sat-cyan" cx="280" cy="58" r="4"/>
+                    </g>
+                    <g class="eg-orbit-b">
+                        <circle class="eg-sat eg-sat-magenta" cx="280" cy="480" r="3"/>
+                    </g>
+
+                    <!-- moldura hexagonal -->
+                    <path class="eg-hex" pathLength="1" d="M280 130 L150 205 L150 355 L280 430 L410 355 L410 205 Z"/>
+                    <path class="eg-hex-inner" pathLength="1" d="M280 144 L162 212 L162 348 L280 416 L398 348 L398 212 Z"/>
+
+                    <!-- traços de circuito + nós -->
+                    <g class="eg-circuits">
+                        <path class="eg-trace" pathLength="1" d="M410 205 h28 l20 -20 h24"/>
+                        <circle class="eg-node eg-n1" cx="486" cy="185" r="4"/>
+                        <path class="eg-trace" pathLength="1" d="M150 355 h-28 l-20 20 h-24"/>
+                        <circle class="eg-node eg-n2" cx="74" cy="375" r="4"/>
+                        <path class="eg-trace" pathLength="1" d="M410 355 h40 l18 18"/>
+                        <circle class="eg-node eg-n3" cx="472" cy="377" r="4"/>
+                        <path class="eg-trace" pathLength="1" d="M150 205 h-40 l-18 -18"/>
+                        <circle class="eg-node eg-n4" cx="88" cy="183" r="4"/>
+                        <text class="eg-glyph" x="486" y="170" text-anchor="middle">OAUTH2</text>
+                        <text class="eg-glyph" x="74" y="398" text-anchor="middle">RBAC</text>
+                    </g>
+
+                    <!-- cadeado (construído em traço) -->
+                    <g class="eg-lock">
+                        <path class="eg-shackle" pathLength="1" d="M245 268 v-28 a35 35 0 0 1 70 0 v28"/>
+                        <rect class="eg-body" pathLength="1" x="225" y="268" width="110" height="88" rx="14"/>
+                        <g class="eg-keyhole">
+                            <circle cx="280" cy="303" r="10"/>
+                            <path d="M280 311 l-6 22 h12 Z"/>
+                        </g>
+                    </g>
+
+                    <!-- scanline confinada ao hexágono -->
+                    <g clip-path="url(#eg-hexclip)">
+                        <rect class="eg-scan" x="150" y="126" width="260" height="3" fill="url(#eg-scanline)"/>
+                    </g>
+
+                    <!-- status -->
+                    <text class="eg-status" x="280" y="460" text-anchor="middle">&gt; access_granted<tspan class="eg-caret">_</tspan></text>
+                </svg>
             </div>
         </div>
+        <a href="#about" class="scroll-hint" aria-label="Rolar para baixo">
+            <span class="mono">scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </header>
 
+    <main>
     <section id="about" class="reveal">
-        <h2>Sobre mim</h2>
+        <div class="section-head">
+            <p class="section-path mono">~/sobre</p>
+            <h2>Sobre mim</h2>
+        </div>
         <div class="about-grid">
-            <div class="about-image">
-                <img src="imagens/perfil1.jpg" alt="Bruno Cortez">
+            <div class="about-visual">
+                <div class="about-photo">
+                    <div class="photo-frame">
+                        <img src="imagens/perfil1.jpg" alt="Bruno Cortez">
+                        <div class="photo-scan" aria-hidden="true"></div>
+                    </div>
+                    <p class="photo-caption mono"><span class="status-dot"></span>bruno@nicolasec <span class="photo-caption-dim">· IAM / IGA / PAM</span></p>
+                </div>
+                <div class="terminal-card spot">
+                    <div class="terminal-bar mono">
+                        <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+                        <span class="terminal-title">bruno.env</span>
+                    </div>
+                    <div class="terminal-body mono">
+                        <p><span class="env-key">CARGO</span>=<span class="env-val">"Analista de Segurança da Informação"</span></p>
+                        <p><span class="env-key">EMPRESA</span>=<span class="env-val">NicolaSec</span></p>
+                        <p><span class="env-key">FOCO</span>=<span class="env-val">"IAM · IGA · PAM · Full-Stack"</span></p>
+                        <p><span class="env-key">LOCAL</span>=<span class="env-val">"São Paulo, SP"</span></p>
+                        <p><span class="env-key">EMAIL</span>=<span class="env-val">brunofcortez@gmail.com</span></p>
+                        <p><span class="env-key">TEL</span>=<span class="env-val">"(11) 97231-0756"</span></p>
+                        <p><span class="env-key">IDIOMAS</span>=<span class="env-val">"pt-BR · en · es"</span></p>
+                        <p><span class="env-key">STATUS</span>=<span class="env-val env-ok">aberto_a_oportunidades</span></p>
+                    </div>
+                </div>
             </div>
             <div class="about-content">
-                <p>Sou estudante de Engenharia da Computação na FIAP, atualmente no 9º semestre, com previsão de término em dezembro de 2025. Tenho uma sólida base em linguagens de programação como Python, Java, R e C++, além de experiência em banco de dados, incluindo a linguagem SQL. Minhas habilidades se estendem a desenvolvimento web com HTML, CSS e JavaScript, com experiência em NextJS, ReactJS, React Native e NodeJS, além de back-end usando o framework Django(Python). Experiência também em redes e sistemas operacionais, com destaque para Linux. Também possuo conhecimento em hardware, segurança cibernética, engenharia de software e computação em nuvem, com foco em nuvem da AWS.
-                </p>
-                <p>Possuo forte capacidade de comunicação, aprendo facilmente novos conceitos e tecnologias, e trabalho bem em equipe. Estou à procura de oportunidades que me permitam aplicar e desenvolver minhas habilidades em um ambiente profissional.</p>
-                <div class="info-item">
-                    <strong>Idade:</strong> <span>24 anos</span>
-                </div>
-                <div class="info-item">
-                    <strong>Email:</strong> <span>brunofcortez@gmail.com</span>
-                </div>
-                <div class="info-item">
-                    <strong>Telefone:</strong> <span>(11) 97231-0756</span>
-                </div>
-                <div class="info-item">
-                    <strong>Localização:</strong> <span>São Paulo, SP</span>
-                </div>
-                <div class="info-item">
-                    <strong>Idiomas:</strong> <span>Português (Nativo), Inglês (Intermediário), Espanhol (Básico)</span>
-                </div>
+                <p>Sou <strong>Engenheiro da Computação formado pela FIAP</strong> (2021 – 2025) e atuo na
+                   <strong>NicolaSec</strong> como <strong>Analista de Segurança da Informação</strong>, onde
+                   entrei como desenvolvedor de software em 2025. Participo do ciclo completo de
+                   desenvolvimento de produtos comerciais de CyberSecurity — interfaces dinâmicas com
+                   <strong>React</strong>, back-end com <strong>Node.js</strong> e modelagem de bancos de dados
+                   relacionais (<strong>SQL</strong>) com foco em integridade, escalabilidade e observabilidade.</p>
+                <p>Me especializo em <strong>gestão de identidades e acessos (IAM, IGA &amp; PAM)</strong>, com
+                   experiência prática no <strong>IDM da Broadcom</strong>, no <strong>SailPoint IGA</strong>
+                   (com certificações IdentityIQ e Identity Security Cloud) e no <strong>MidPoint da
+                   Evolveum</strong> — além de atuação direta na construção do <strong>Mind the Gap</strong>,
+                   plataforma de visibilidade e inteligência de identidades apresentada no IAM Tech Day 2026.
+                   Também tenho base sólida em <strong>Java/Spring Boot, Python/Django, Linux, Docker e AWS</strong>.</p>
+                <p>Possuo forte capacidade de comunicação, aprendo com facilidade novos conceitos e
+                   tecnologias, e trabalho bem em equipe.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="reveal">
+        <div class="section-head">
+            <p class="section-path mono">~/experiencia</p>
+            <h2>Experiência</h2>
+        </div>
+        <div class="education-timeline" data-stagger>
+            <div class="timeline-item spot">
+                <p class="year mono">mai 2026 — o momento</p>
+                <h3>Analista de Segurança da Informação</h3>
+                <p>NicolaSec · São Paulo, SP · Híbrido</p>
+                <p class="timeline-detail">Atuação em soluções de gestão de identidades e acessos (IAM, IGA &amp; PAM)
+                   com Broadcom IDM, SailPoint IGA e MidPoint (Evolveum), governança e auditoria de ambientes
+                   corporativos — incluindo a plataforma Mind the Gap.</p>
+            </div>
+            <div class="timeline-item spot">
+                <p class="year mono">jul 2025 — o momento</p>
+                <h3>Desenvolvedor de Software</h3>
+                <p>NicolaSec · São Paulo, SP · Híbrido</p>
+                <p class="timeline-detail">Desenvolvimento full-stack de soluções comerciais de CyberSecurity:
+                   interfaces dinâmicas com React, back-end com Node.js e modelagem de bancos de dados
+                   relacionais (SQL) com foco em integridade, escalabilidade e observabilidade.</p>
             </div>
         </div>
     </section>
 
     <section id="skills" class="reveal">
-        <h2>Habilidades</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Programação</h3>
-                <ul class="skills-list">
-                    <li>Python</li>
-                    <li>R</li>
-                    <li>Linguagem C++</li>
-                    <li>HTML, CSS e JavaScript</li>
-                    <li>React, Node.Js, Next.Js</li>
-                    <li>Framework Django</li>
-                    <li>Java</li>
-                    <li>Spring Boot</li>
-                </ul>
+        <div class="section-head">
+            <p class="section-path mono">~/stack</p>
+            <h2>Stack &amp; Habilidades</h2>
+        </div>
+        <div class="bento" data-stagger>
+            <article class="bento-tile tile-main spot">
+                <div class="tile-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>Desenvolvimento Full-Stack</h3>
+                <p>Do banco de dados à interface: APIs REST, aplicações web SSR e apps mobile — com
+                   autenticação, persistência e deploy.</p>
+                <div class="chips">
+                    <span class="chip">React</span>
+                    <span class="chip">Next.js</span>
+                    <span class="chip">Node.js</span>
+                    <span class="chip">Express</span>
+                    <span class="chip">Java</span>
+                    <span class="chip">Spring Boot</span>
+                    <span class="chip">Django</span>
+                    <span class="chip">Flask</span>
+                    <span class="chip">React Native</span>
+                    <span class="chip">JPA</span>
+                    <span class="chip">Engenharia de Software</span>
+                    <span class="chip">Documentação</span>
+                </div>
+            </article>
+            <article class="bento-tile spot">
+                <div class="tile-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Segurança &amp; Identidade</h3>
+                <div class="chips">
+                    <span class="chip">Broadcom IDM</span>
+                    <span class="chip">SailPoint IGA</span>
+                    <span class="chip">MidPoint Evolveum</span>
+                    <span class="chip">IAM</span>
+                    <span class="chip">IGA</span>
+                    <span class="chip">PAM</span>
+                    <span class="chip">OAuth 2.0</span>
+                    <span class="chip">CyberSecurity</span>
+                </div>
+            </article>
+            <article class="bento-tile spot">
+                <div class="tile-icon"><i class="fas fa-database"></i></div>
+                <h3>Dados</h3>
+                <div class="chips">
+                    <span class="chip">PostgreSQL</span>
+                    <span class="chip">SQL</span>
+                    <span class="chip">Big Data</span>
+                    <span class="chip">PowerBI</span>
+                </div>
+            </article>
+            <article class="bento-tile spot">
+                <div class="tile-icon"><i class="fas fa-server"></i></div>
+                <h3>Infra &amp; DevOps</h3>
+                <div class="chips">
+                    <span class="chip">Docker</span>
+                    <span class="chip">Nginx</span>
+                    <span class="chip">Linux</span>
+                    <span class="chip">AWS</span>
+                    <span class="chip">Redes</span>
+                    <span class="chip">PowerShell</span>
+                </div>
+            </article>
+            <article class="bento-tile tile-stats spot">
+                <div class="stat">
+                    <span class="stat-num mono">10</span>
+                    <span class="stat-label">projetos construídos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num mono">55</span>
+                    <span class="stat-label">certificados</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num mono">12</span>
+                    <span class="stat-label">certificações SailPoint</span>
+                </div>
+            </article>
+            <article class="bento-tile spot">
+                <div class="tile-icon"><i class="fas fa-code"></i></div>
+                <h3>Linguagens &amp; Ferramentas</h3>
+                <div class="chips">
+                    <span class="chip">Python</span>
+                    <span class="chip">Java</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">C</span>
+                    <span class="chip">C++</span>
+                    <span class="chip">R</span>
+                    <span class="chip">Office</span>
+                    <span class="chip">AutoCAD</span>
+                </div>
+            </article>
+            <article class="bento-tile spot">
+                <div class="tile-icon"><i class="fas fa-users"></i></div>
+                <h3>Soft Skills</h3>
+                <div class="chips">
+                    <span class="chip">Comunicação</span>
+                    <span class="chip">Trabalho em equipe</span>
+                    <span class="chip">Resolução de problemas</span>
+                    <span class="chip">Pesquisa</span>
+                    <span class="chip">Aprendizado rápido</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="projects" class="reveal">
+        <div class="section-head">
+            <p class="section-path mono">~/projetos</p>
+            <h2>Projetos em destaque</h2>
+        </div>
+        <article class="project-card mtg-feature spot reveal">
+            <div class="mtg-info">
+                <p class="mtg-badge mono">flagship · produto comercial · ForgeTru / NicolaSec</p>
+                <h3>Mind the Gap <span class="mtg-sub">IVIP</span></h3>
+                <p class="mtg-tagline">Identity Visibility &amp; Intelligence Platform</p>
+                <p>Plataforma de governança de identidades (IGA) e auditoria que resolve um dos maiores
+                   pontos cegos das corporações: a falta de correlação inteligente de dados. Cruza dados de
+                   RH, sistemas-alvo (bancos de dados e aplicações), ferramentas IGA — como Broadcom e
+                   SailPoint — e ITSM para mapear o ciclo de vida completo de identidades, contas e recursos.</p>
+                <p>O motor de divergências identifica ameaças silenciosas — contas órfãs, acessos indevidos e
+                   grupos não gerenciados — e traduz o risco técnico em linguagem de negócios, com métricas
+                   claras do prejuízo financeiro potencial de cada vulnerabilidade.</p>
+                <p class="mtg-role"><strong>Minha contribuição:</strong> arquitetura da lógica de mapeamento e
+                   descoberta dinâmica de endpoints, estruturação do banco de dados e dashboards executivos —
+                   com demonstração ao vivo no IAM Tech Day 2026.</p>
+                <div class="chips">
+                    <span class="chip">IGA</span><span class="chip">IVIP</span>
+                    <span class="chip">Broadcom IDM</span><span class="chip">SailPoint IGA</span>
+                    <span class="chip">MidPoint</span><span class="chip">ITSM</span>
+                    <span class="chip">React</span><span class="chip">Node.js</span>
+                    <span class="chip">SQL</span>
+                </div>
+                <div class="project-links mono">
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7455796293328789504/" target="_blank" rel="noopener">apresentação no LinkedIn <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
             </div>
-            <div class="skill-category">
-                <h3>Banco de Dados</h3>
-                <ul class="skills-list">
-                    <li>Banco de dados relacional</li>
-                    <li>Linguagem SQL</li>
-                </ul>
+            <div class="mtg-visual">
+                <div class="terminal-bar mono">
+                    <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+                    <span class="terminal-title">mind-the-gap · dashboard</span>
+                </div>
+                <button class="mtg-screenshot" id="mtg-expand" type="button" aria-haspopup="dialog" aria-label="Expandir dashboard do Mind the Gap em tela cheia">
+                    <img src="imagens/mtg.jpg" alt="Dashboard do Mind the Gap IVIP" loading="lazy">
+                    <span class="mtg-scan" aria-hidden="true"></span>
+                    <span class="mtg-zoom-hint mono" aria-hidden="true"><i class="fas fa-expand"></i> expandir</span>
+                </button>
+                <div class="mtg-log mono" aria-hidden="true">
+                    <p><span class="prompt-user">mtg</span><span class="prompt-path">:~$</span> scan divergences</p>
+                    <p class="mtg-warn">⚠ contas órfãs · acessos indevidos · grupos não gerenciados</p>
+                    <p class="mtg-ok">✓ risco traduzido em métricas financeiras<span class="caret-block"></span></p>
+                </div>
             </div>
-            <div class="skill-category">
-                <h3>Infraestrutura</h3>
-                <ul class="skills-list">
-                    <li>Redes</li>
-                    <li>Linux</li>
-                    <li>Conhecimento em hardware</li>
-                    <li>Cloud Computing (AWS)</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Segurança</h3>
-                <ul class="skills-list">
-                    <li>CyberSecurity</li>
-                    <li>Conhecimento base sobre segurança da informação</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Habilidades Pessoais</h3>
-                <ul class="skills-list">
-                    <li>Comunicação</li>
-                    <li>Sempre atrás de novos conhecimentos</li>
-                    <li>Rápido aprendizado</li>
-                    <li>Trabalho em equipe</li>
-                    <li>Esforçado e dedicado</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Outros Conhecimentos</h3>
-                <ul class="skills-list">
-                    <li>Pacote Office</li>
-                    <li>Engenharia de software</li>
-                    <li>IoT</li>
-                    <li>Big Data</li>
-                    <li>PowerBI</li>
-                </ul>
-            </div>
+        </article>
+        <div class="projects-featured" data-stagger>
+            <article class="project-card featured spot">
+                <div class="project-media">
+                    <img src="imagens/projeto8.png" alt="ScreenMatch" loading="lazy">
+                    <span class="project-badge mono">destaque</span>
+                </div>
+                <div class="project-body">
+                    <h3>ScreenMatch</h3>
+                    <p>Aplicação web full-stack com Java (Spring Boot) no back-end e HTML, CSS e JavaScript
+                       no front-end. API REST, integração com ChatGPT, persistência em PostgreSQL e CRUD
+                       completo — Spring MVC, JPA, Maven e JPQL.</p>
+                    <div class="chips">
+                        <span class="chip">Java</span><span class="chip">Spring Boot</span>
+                        <span class="chip">PostgreSQL</span><span class="chip">ChatGPT API</span>
+                    </div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/ScreenMatch-Front" target="_blank" rel="noopener">front-end <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/BrunoCortez64/ScreenMatch-Java" target="_blank" rel="noopener">back-end <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card featured spot">
+                <div class="project-media">
+                    <img src="imagens/projeto9.png" alt="VollMed API" loading="lazy">
+                    <span class="project-badge mono">destaque</span>
+                </div>
+                <div class="project-body">
+                    <h3>VollMed API</h3>
+                    <p>API RESTful com Java e Spring Boot para uma clínica médica: CRUD de médicos e
+                       pacientes, agendamento de consultas, princípios SOLID, autenticação, documentação
+                       OpenAPI, testes automatizados e preparação para deploy.</p>
+                    <div class="chips">
+                        <span class="chip">Java</span><span class="chip">Spring Boot</span>
+                        <span class="chip">REST</span><span class="chip">Security</span>
+                    </div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/VollMed" target="_blank" rel="noopener">repositório <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card featured spot">
+                <div class="project-media">
+                    <img src="imagens/projeto5.png" alt="Bruno Books" loading="lazy">
+                    <span class="project-badge mono">destaque</span>
+                </div>
+                <div class="project-body">
+                    <h3>Bruno Books</h3>
+                    <p>Livraria web com front-end e back-end completamente funcionais, desenvolvidos em
+                       React e Node.js — catálogo, cadastro e integração completa entre cliente e servidor.</p>
+                    <div class="chips">
+                        <span class="chip">React</span><span class="chip">Node.js</span>
+                        <span class="chip">Express</span>
+                    </div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/bruno-books" target="_blank" rel="noopener">front-end <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/BrunoCortez64/bruno-books-server" target="_blank" rel="noopener">back-end <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="projects-grid" data-stagger>
+            <article class="project-card spot">
+                <div class="project-media"><img src="imagens/projeto2.png" alt="FiapFilmes" loading="lazy"></div>
+                <div class="project-body">
+                    <h3>FiapFilmes</h3>
+                    <p>Aplicação sobre filmes com Next.js e Node.js, integrada à API do TMDB.</p>
+                    <div class="chips"><span class="chip">Next.js</span><span class="chip">Node.js</span><span class="chip">TMDB</span></div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/FiapFilmes" target="_blank" rel="noopener">repositório <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card spot">
+                <div class="project-media"><img src="imagens/projeto3.png" alt="Comanda BRVT" loading="lazy"></div>
+                <div class="project-body">
+                    <h3>Comanda BRVT</h3>
+                    <p>App mobile em React Native e Expo: comanda de restaurante funcional integrada a uma API de lanches.</p>
+                    <div class="chips"><span class="chip">React Native</span><span class="chip">Expo</span></div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/ComandaBRVT" target="_blank" rel="noopener">repositório <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card spot">
+                <div class="project-media"><img src="imagens/projeto4.png" alt="IA Mol" loading="lazy"></div>
+                <div class="project-body">
+                    <h3>IA Mol</h3>
+                    <p>Machine learning em Python para banco de moléculas químicas: previsão, análise exploratória e gráficos com pandas, sklearn e rdkit.</p>
+                    <div class="chips"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">pandas</span></div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/IA_mol" target="_blank" rel="noopener">repositório <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card spot">
+                <div class="project-media"><img src="imagens/projeto6.png" alt="Bruno Space" loading="lazy"></div>
+                <div class="project-body">
+                    <h3>Bruno Space</h3>
+                    <p>Aplicação web full-stack com HTML, CSS e Python, utilizando o framework Django.</p>
+                    <div class="chips"><span class="chip">Django</span><span class="chip">Python</span></div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/bruno_space1" target="_blank" rel="noopener">repositório <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card spot">
+                <div class="project-media"><img src="imagens/projeto7.png" alt="FilmesJava" loading="lazy"></div>
+                <div class="project-body">
+                    <h3>FilmesJava</h3>
+                    <p>Back-end Java para estudos: encapsulamento, POO, manipulação de dados e consumo de API.</p>
+                    <div class="chips"><span class="chip">Java</span><span class="chip">POO</span></div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/FilmesJava" target="_blank" rel="noopener">repositório <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card spot">
+                <div class="project-media"><img src="imagens/projeto1.png" alt="CS Skins Market" loading="lazy"></div>
+                <div class="project-body">
+                    <h3>CS Skins Market</h3>
+                    <p>Aplicação front-end para um mercado de skins do Counter-Strike.</p>
+                    <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+                    <div class="project-links mono">
+                        <a href="https://github.com/BrunoCortez64/portifolio-brvt" target="_blank" rel="noopener">repositório <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
     <section id="education" class="reveal">
-        <h2>Educação</h2>
-        <div class="education-timeline">
-            <div class="timeline-item">
-                <div class="year">2021 - 2025</div>
-                <h3>Engenharia da Computação</h3>
+        <div class="section-head">
+            <p class="section-path mono">~/formacao</p>
+            <h2>Educação</h2>
+        </div>
+        <div class="education-timeline" data-stagger>
+            <div class="timeline-item spot">
+                <p class="year mono">2021 — 2025 · concluído</p>
+                <h3>Bacharelado em Engenharia da Computação</h3>
                 <p>Faculdade de Informática e Administração Paulista (FIAP)</p>
-                <p>Campus Aclimação - 9º semestre - Período noturno</p>
+                <p class="timeline-detail">Campus Aclimação · Período noturno</p>
             </div>
-            <div class="timeline-item">
-                <div class="year">2013 - 2019</div>
+            <div class="timeline-item spot">
+                <p class="year mono">2013 — 2019</p>
                 <h3>Ensino Fundamental e Médio</h3>
                 <p>Colégio Van Gogh</p>
             </div>
-            <div class="timeline-item">
-                <div class="year">2008 - 2012</div>
+            <div class="timeline-item spot">
+                <p class="year mono">2008 — 2012</p>
                 <h3>Ensino Fundamental</h3>
                 <p>SESI</p>
             </div>
@@ -160,259 +542,184 @@
     </section>
 
     <section id="courses" class="reveal">
-        <h2>Cursos Complementares</h2>
-        <div class="courses-grid">
-            <div class="course-card">
-                <h3>Sensores e circuitos digitais</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
+        <div class="section-head">
+            <p class="section-path mono">~/formacao/certificados</p>
+            <h2>Cursos &amp; Certificados <span class="mono courses-total">55</span></h2>
+        </div>
+        <div class="courses-panels" data-stagger>
+            <div class="courses-panel courses-panel-full spot">
+                <div class="panel-head">
+                    <h3>Identidade &amp; Segurança <span class="mono panel-count">16 certificados</span></h3>
+                </div>
+                <details class="courses-group" open>
+                    <summary><span>SailPoint · Identity Security</span><span class="mono panel-count">12</span></summary>
+                    <ul class="courses-list courses-list-cols">
+                        <li>Introduction to Identity Security Cloud</li>
+                        <li>IdentityIQ: Explore Access History Data</li>
+                        <li>Discover Identity Security with SailPoint</li>
+                        <li>Discover Machine Identity Security</li>
+                        <li>Discover Non-Employee Risk Management</li>
+                        <li>File Access Manager Introduction</li>
+                        <li>Plan Your Identity Security Strategy</li>
+                        <li>Build Your Identity Security Team</li>
+                        <li>Chart a Successful Implementation Journey</li>
+                        <li>Manage Your Implementation Projects</li>
+                        <li>Explore the Evolution of Identity Security</li>
+                        <li>Launch Your Identity Security Career</li>
+                    </ul>
+                </details>
+                <details class="courses-group">
+                    <summary><span>Cisco Networking Academy</span><span class="mono panel-count">2</span></summary>
+                    <ul class="courses-list">
+                        <li>Networking Basics</li>
+                        <li>Introdução a CyberSecurity</li>
+                    </ul>
+                </details>
+                <details class="courses-group">
+                    <summary><span>IAM Tech Day 2026</span><span class="mono panel-count">2</span></summary>
+                    <ul class="courses-list">
+                        <li>Certificado de participação — IAM Tech Day 2026</li>
+                        <li>Apresentação do Mind the Gap IVIP no evento</li>
+                    </ul>
+                </details>
             </div>
-            <div class="course-card">
-                <h3>Formação social e sustentabilidade</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
+            <div class="courses-panel spot">
+                <div class="panel-head">
+                    <h3>Alura <span class="mono panel-count">29 cursos</span></h3>
+                </div>
+                <details class="courses-group" open>
+                    <summary><span>Java &amp; Spring Boot</span><span class="mono panel-count">10</span></summary>
+                    <ul class="courses-list">
+                        <li>Formação Java Web: crie aplicações usando Spring Boot</li>
+                        <li>Formação Aprenda a programar em Java com Orientação a Objetos</li>
+                        <li>Spring Boot 3: desenvolva uma API Rest em Java</li>
+                        <li>Java: criando sua primeira API e conectando ao front</li>
+                        <li>Java: persistência de dados e consultas com Spring Data JPA</li>
+                        <li>Java: trabalhando com lambdas, streams e Spring Framework</li>
+                        <li>Java: consumindo API, gravando arquivos e lidando com erros</li>
+                        <li>Java: trabalhando com listas e coleções de dados</li>
+                        <li>Java: aplicando a Orientação a Objetos</li>
+                        <li>Java: criando a sua primeira aplicação</li>
+                    </ul>
+                </details>
+                <details class="courses-group">
+                    <summary><span>Infra &amp; DevOps</span><span class="mono panel-count">5</span></summary>
+                    <ul class="courses-list">
+                        <li>Docker: criando e gerenciando containers</li>
+                        <li>Linux: gerenciando diretórios, arquivos, permissões e processos</li>
+                        <li>Linux: criando script para processamento de arquivos de logs</li>
+                        <li>Redes: dos conceitos iniciais à criação de uma intranet</li>
+                        <li>PowerShell parte 1: a linguagem de scripting moderna</li>
+                    </ul>
+                </details>
+                <details class="courses-group">
+                    <summary><span>Django &amp; Python</span><span class="mono panel-count">9</span></summary>
+                    <ul class="courses-list">
+                        <li>Formação Django: crie aplicações em Python</li>
+                        <li>Django: CRUD e persistência no S3</li>
+                        <li>Django: autenticação com OAuth 2.0</li>
+                        <li>Django: autenticação de formulários e alerta</li>
+                        <li>Django: persistência de dados e Admin</li>
+                        <li>Django: templates e boas práticas</li>
+                        <li>Python: crie a sua primeira aplicação</li>
+                        <li>Praticando Python: condicionais if, elif e else</li>
+                        <li>Praticando Python: laços for e while</li>
+                    </ul>
+                </details>
+                <details class="courses-group">
+                    <summary><span>React, Node &amp; JavaScript</span><span class="mono panel-count">5</span></summary>
+                    <ul class="courses-list">
+                        <li>Formação Full Stack JavaScript: crie um projeto com React e Node.js</li>
+                        <li>React: comece seu projeto full stack</li>
+                        <li>React e Node.js: consumindo APIs no projeto full stack</li>
+                        <li>Node.js: criando uma API com Express</li>
+                        <li>Lógica de programação: mergulhe em programação com JavaScript</li>
+                    </ul>
+                </details>
             </div>
-            <div class="course-card">
-                <h3>Algoritmos: Aprenda a programar</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>Gestão de Infraestrutura de TI</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>Estatística para soluções em TI</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>Dominando IOT</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>Python</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>BigData</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>CyberSecurity</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>Estrutura de Computadores</h3>
-                <p>FIAP - Centro Universitário</p>
-                <p>NANO Course</p>
-            </div>
-            <div class="course-card">
-                <h3>React: comece seu projeto full stack</h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>React e Node.js: consumindo APIs no React no projeto full stack</h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Node.js: continue seu projeto full stack criando uma API com Express</h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Lógica de programação: mergulhe em programação com JavaScript
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Django: templates e boas práticas                    
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Django: persistência de dados e Admin                    
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Django: autenticação de formulários e alerta                    
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Django: autenticação com OAuth2.0                   
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Django: CRUD e persistência no S3                   
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Java: criando a sua primeira aplicação                  
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Java: aplicando a Orientação a Objetos              
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Java: trabalhando com listas e coleções de dados         
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Java: consumindo API, gravando arquivos e lidando com erros            
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Java: trabalhando com lambdas, streams e Spring Framework          
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Java: persistência de dados e consultas com Spring Data JPA            
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Java: criando sua primeira API e conectando ao front           
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Spring Boot 3: desenvolva uma API Rest em Java           
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Spring Boot 3: aplique boas práticas e proteja uma API Rest          
-                </h3>
-                <p>ALURA</p>
-            </div>
-            <div class="course-card">
-                <h3>Spring Boot 3: documente, teste e prepare uma API para o deploy          
-                </h3>
-                <p>ALURA</p>
+            <div class="courses-panel spot">
+                <div class="panel-head">
+                    <h3>FIAP <span class="mono panel-count">10 certificados</span></h3>
+                </div>
+                <details class="courses-group" open>
+                    <summary><span>Desenvolvimento</span><span class="mono panel-count">3</span></summary>
+                    <ul class="courses-list">
+                        <li>Java Development</li>
+                        <li>Java Fundamentos</li>
+                        <li>Algoritmos: aprenda a programar</li>
+                    </ul>
+                </details>
+                <details class="courses-group">
+                    <summary><span>Infra, Segurança &amp; Hardware</span><span class="mono panel-count">5</span></summary>
+                    <ul class="courses-list">
+                        <li>CyberSecurity</li>
+                        <li>Gestão de Infraestrutura de TI</li>
+                        <li>Estruturas de Computadores</li>
+                        <li>Sensores e Circuitos Digitais</li>
+                        <li>Dominando IoT</li>
+                    </ul>
+                </details>
+                <details class="courses-group">
+                    <summary><span>Complementares</span><span class="mono panel-count">2</span></summary>
+                    <ul class="courses-list">
+                        <li>Estatística para Soluções em TI</li>
+                        <li>Formação Social e Sustentabilidade</li>
+                    </ul>
+                </details>
             </div>
         </div>
     </section>
-
-    <section id="projects" class="reveal">
-        <h2>Projetos</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="imagens/projeto1.png" alt="Projeto 1">
-                <h3>Projeto 1</h3>
-                <p>Aplicação front-end para um mercado de skins do Counter-Strike</p>
-                <a href="https://github.com/BrunoCortez64/portifolio-brvt">Repositório</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto2.png" alt="Projeto 2">
-                <h3>Projeto 2</h3>
-                <p>Aplicação sobre filmes feita com NextJS e NodeJS front-end/back-end integrada a API TMDB</p>
-                <a href="https://github.com/BrunoCortez64/FiapFilmes">Repositório</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto3.png" alt="Projeto 3">
-                <h3>Projeto 3</h3>
-                <p>Aplicativo mobile desenvolvido em ReactJS e ExpoJS para uma comanda de restaurante funcional, integrada a uma API de lanches</p>
-                <a href="https://github.com/BrunoCortez64/ComandaBRVT">Repositório</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto4.png" alt="Projeto 4">
-                <h3>Projeto 4</h3>
-                <p>Desenvolvimento de uma MachineLearning para um banco de dados de moléculas químicas em Python utilizando pandas, sklearn, seaborn, rdkit.</p>
-                <p>A máquina prevê dados, faz resumo estatísticos, retorna em gráficos, faz uma análise exploratória e retorna a melhor molécula do banco de dados</p>
-                <a href="https://github.com/BrunoCortez64/IA_mol">Repositório</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto5.png" alt="Projeto 5">
-                <h3>Projeto 5</h3>
-                <p>Aplicação web de uma livraria com front-end/back-end completamente funcionais, desenvolvidos em ReactJS e NodeJS</p>
-                <a href="https://github.com/BrunoCortez64/bruno-books">Repositório front-end /</a>
-                <a href="https://github.com/BrunoCortez64/bruno-books-server">Repositório servidor back-end</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto6.png" alt="Projeto 6">
-                <h3>Projeto 6</h3>
-                <p>Aplicação web FullStack desenvolvida por Html,Css e Python, utilizando o framework Django</p>
-                <a href="https://github.com/BrunoCortez64/bruno_space1">Repositório</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto7.png" alt="Projeto 7">
-                <h3>Projeto 7</h3>
-                <p>Aplicação back-end Java realizada para estudos, utilizando encapsulamentos, programação orientada à objetos, manipulação de dados e consumo de API</p>
-                <a href="https://github.com/BrunoCortez64/FilmesJava">Repositório</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto8.png" alt="Projeto 8">
-                <h3>Projeto 8</h3>
-                <p>Aplicação web full stack desenvolvida com Java (Spring Boot) no back-end e HTML, CSS e JavaScript no front-end.
-Conta com API REST, integração com ChatGPT, persistência de dados em PostgreSQL, e funcionalidades completas de CRUD.
-Projeto criado para demonstrar domínio em desenvolvimento web de ponta a ponta com Spring MVC, JPA, Maven e JPQL.</p>
-                <a href="https://github.com/BrunoCortez64/ScreenMatch-Front">Repositório front-end /</a>
-                <a href="https://github.com/BrunoCortez64/ScreenMatch-Java">Repositório servidor back-end</a>
-            </div>
-            <div class="project-card">
-                <img src="imagens/projeto9.png" alt="Projeto 9">
-                <h3>Projeto 9</h3>
-                <p>API RESTful desenvolvida com Java e Spring Boot para uma clínica médica fictícia chamada Voll Med.
-A aplicação permite o cadastro, atualização, listagem e exclusão (CRUD) de médicos e pacientes, além do agendamento e cancelamento de consultas.
-Inclui princípios SOLID, autenticação, documentação com OpenAPI, testes automatizados e preparação para deploy com variáveis de ambiente.
-Projeto focado em criar aplicações seguras, escaláveis e prontas para produção com Spring Framework.</p>
-                <a href="https://github.com/BrunoCortez64/VollMed">Repositório</a>
-            </div>
-        </div>
-    </section>
-    
 
     <section id="contact" class="reveal">
-        <h2>Contato</h2>
-        <div class="social-contact">
-            <a href="https://wa.me/5511972310756" class="social-contact-item">
+        <div class="section-head section-head-center">
+            <p class="section-path mono">~/contato</p>
+            <h2>Vamos construir algo juntos?</h2>
+            <p class="contact-sub">Estou aberto a oportunidades, projetos e boas conversas sobre tecnologia.</p>
+        </div>
+        <div class="social-contact" data-stagger>
+            <a href="https://wa.me/5511972310756" target="_blank" rel="noopener" class="social-contact-item spot magnetic">
                 <i class="fab fa-whatsapp"></i>
                 <span>WhatsApp</span>
             </a>
-            <a href="https://www.instagram.com/_brunodgk/" class="social-contact-item">
-                <i class="fab fa-instagram"></i>
-                <span>Instagram</span>
-            </a>
-            <a href="https://www.linkedin.com/in/brunofcortez/" class="social-contact-item">
-                <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/brunofcortez/" target="_blank" rel="noopener" class="social-contact-item spot magnetic">
+                <i class="fab fa-linkedin-in"></i>
                 <span>LinkedIn</span>
             </a>
-            <a href="https://github.com/BrunoCortez64" class="social-contact-item">
+            <a href="https://github.com/BrunoCortez64" target="_blank" rel="noopener" class="social-contact-item spot magnetic">
                 <i class="fab fa-github"></i>
                 <span>GitHub</span>
             </a>
-            <a href="mailto:brunofcortez@gmail.com" class="social-contact-item">
+            <a href="mailto:brunofcortez@gmail.com" class="social-contact-item spot magnetic">
                 <i class="fas fa-envelope"></i>
                 <span>Email</span>
             </a>
         </div>
     </section>
+    </main>
 
     <footer>
         <div class="footer-content">
-            <div class="logo">Bruno Cortez</div>
-            <p>© 2025 Bruno Cortez. Todos os direitos reservados.</p>
+            <p class="footer-logo"><span class="logo-prompt">❯</span> Bruno Cortez</p>
+            <p class="mono footer-note">© 2026 Bruno Cortez · construído com HTML, CSS e JavaScript</p>
         </div>
     </footer>
 
+    <div class="lightbox" id="mtg-lightbox" role="dialog" aria-modal="true" aria-label="Dashboard do Mind the Gap em tela cheia" hidden>
+        <div class="lightbox-backdrop"></div>
+        <figure class="lightbox-frame">
+            <div class="terminal-bar mono">
+                <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+                <span class="terminal-title">mind-the-gap · dashboard · fullscreen</span>
+            </div>
+            <div class="lightbox-body">
+                <img src="imagens/mtg.jpg" alt="Dashboard do Mind the Gap IVIP">
+                <span class="lightbox-scan" aria-hidden="true"></span>
+            </div>
+        </figure>
+        <button class="lightbox-close mono" type="button" aria-label="Fechar visualização">esc <i class="fas fa-xmark"></i></button>
+    </div>
 
-
-    <script src="script.js"></script> 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
+    <script src="assets/particles.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
