@@ -14,7 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* ---------- Revelação ao rolar (IntersectionObserver) ---------- */
+/* ---------- Revelação ao rolar (IntersectionObserver) ----------
+   threshold: 0 — dispara assim que o 1º pixel entra, independente da
+   altura do alvo. Um threshold por área (ex.: 0.12) falha em seções
+   muito altas (ex.: #projects empilhada no mobile, ~6300px): exigiria
+   ~760px visíveis de uma vez, o que nunca acontece durante a rolagem
+   normal e a seção fica presa em opacity:0 (parecendo "vazia"). */
 const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -30,7 +35,7 @@ const revealObserver = new IntersectionObserver(entries => {
             revealObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
